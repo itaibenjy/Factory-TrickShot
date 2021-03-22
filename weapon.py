@@ -31,6 +31,9 @@ projectile_cooldown = {
     'boomerang': 0,
 }
 
+bounce = pygame.mixer.Sound('audio/bounce.wav')
+hit = pygame.mixer.Sound('audio/hit.wav')
+portal = pygame.mixer.Sound('audio/portal.wav')
 
 class Weapons():
     def __init__(self):
@@ -79,48 +82,48 @@ class Weapons():
                                   projectile.rect.centery)
                 if block == 3:
                     if projectile.canHit:
-                        pygame.mixer.Channel(4).play(pygame.mixer.Sound('audio/bounce.wav'))
+                        pygame.mixer.Channel(4).play(bounce)
                         projectile.canHit = False
                         projectile.direction = self.calcTrampoline3(
                             projectile.direction)
                 elif block == 4:
                     if projectile.canHit:
-                        pygame.mixer.Channel(4).play(pygame.mixer.Sound('audio/bounce.wav'))
+                        pygame.mixer.Channel(4).play(bounce)
                         projectile.canHit = False
                         projectile.direction = self.calcTrampoline4(
                             projectile.direction)
                 elif block == 5:
                     if projectile.canHit:
-                        pygame.mixer.Channel(4).play(pygame.mixer.Sound('audio/bounce.wav'))
+                        pygame.mixer.Channel(4).play(bounce)
                         projectile.canHit = False
                         projectile.direction = self.calcTrampoline5(
                             projectile.direction)
                 elif block == 6:
                     if projectile.canHit:
-                        pygame.mixer.Channel(4).play(pygame.mixer.Sound('audio/bounce.wav'))
+                        pygame.mixer.Channel(4).play(bounce)
                         projectile.canHit = False
                         projectile.direction = self.calcTrampoline6(
                             projectile.direction)
                 elif block >= 11 and block <= 18:
                     if projectile.canHit:
-                        pygame.mixer.Channel(4).play(pygame.mixer.Sound('audio/bounce.wav'))
+                        pygame.mixer.Channel(4).play(bounce)
                         projectile.canHit = False
                         projectile.direction = self.calcTrampolineRegular(
                             projectile.direction, block)
                 elif block == 19 or block == 20:
                     if projectile.canHit:
-                        pygame.mixer.Channel(8).play(pygame.mixer.Sound('audio/portal.wav'))
+                        pygame.mixer.Channel(2).play(portal)
                         projectile.canHit = False
                         self.setPortalPosition(projectile, block, world)
                 elif block == 7:
                     if projectile.kind == 'bullet':
-                        pygame.mixer.Channel(3).play(pygame.mixer.Sound('audio/hit.wav'))
+                        pygame.mixer.Channel(3).play(hit)
                         weapon.hit_projectiles.append(projectile)
                         if len(weapon.hit_projectiles) >= 20:
                             weapon.hit_projectiles.pop(0)
                         weapon.projectiles.remove(projectile)
                 elif block != 0:
-                    pygame.mixer.Channel(3).play(pygame.mixer.Sound('audio/hit.wav'))
+                    pygame.mixer.Channel(3).play(hit)
                     weapon.hit_projectiles.append(projectile)
                     if len(weapon.hit_projectiles) >= 20:
                         weapon.hit_projectiles.pop(0)
