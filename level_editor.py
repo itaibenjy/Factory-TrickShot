@@ -9,6 +9,7 @@ import csv_handler
 
 pygame.init()
 screen = pygame.display.set_mode((SCREEN_WIDTH+100, SCREEN_HEIGHT))
+pygame.display.set_caption('Factory Trick-Shot Level Editor')
 clock = pygame.time.Clock()
 world = World(screen)
 character = Character(bottomleftpos=(200, 200))
@@ -56,7 +57,6 @@ def select_block():
         if pos[0] > 1200:
             for key in BLOCKS_POS:
                 if BLOCKS_POS[key][0] == x*50 and BLOCKS_POS[key][1] == y*50:
-                    print(key)
                     return key
     if x*50 == 1250 and y*50 == 750 and keys[0] and delay == 0:
         saveFile()
