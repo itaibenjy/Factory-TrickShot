@@ -4,6 +4,7 @@ from csv_handler import csvMatrixReader
 from animation import DoorTransition
 import os
 pygame.init()
+pygame.mixer.init()
 
 
 class World():
@@ -132,6 +133,8 @@ class World():
     def activeBlock(self, x, y):
         if self.getTile(x, y) == 10:
             self.nextLevel()
+        elif self.getTile(x, y) == 8:
+            pygame.mixer.Channel(5).play(pygame.mixer.Sound('audio/launcher.wav'))
         try:
             if x > 0 and y > 0:
                 self.level_animations[y//50][x//50][2] = True

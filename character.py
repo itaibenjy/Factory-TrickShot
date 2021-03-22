@@ -3,6 +3,8 @@ import os
 import math
 from data import SCREEN_WIDTH, WALKING_SPEED, GRAVITY, JUMP, BOW, BOOMERANG
 
+pygame.init()
+pygame.mixer.init()
 
 class Character():
 
@@ -109,6 +111,7 @@ class Character():
             x = self.rect[0].centerx
             if world.getTile(x,y) == 8:
                 world.activeBlock(x,y)
+                pygame.mixer.Channel(5).play(pygame.mixer.Sound('audio/launcher.wav'))
                 self.movement[1] = JUMP * 2
             else: 
                 self.canJump = True
