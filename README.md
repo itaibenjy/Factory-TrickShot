@@ -1,5 +1,5 @@
 # Factory-TrickShot
-My first Pygame game I built during the first year of my software engineer studies.
+My first Pygame game I built during the first year of my software engineer studies.(I am aware the code is a mess but is the first big project I did that is why I kept it in my latest project is [YouTube Downloader](https://github.com/itaibenjy/Youtube-Downloader))
 
 The game is a puzzle like game with shooting mechanics, there are 3 weapons each with there own mechanics and balistics (the projectile move differently).
 
